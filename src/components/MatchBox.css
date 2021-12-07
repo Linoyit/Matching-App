@@ -1,0 +1,18 @@
+
+.match-box > img {
+    float: right;
+}
+
+.match-box {
+    padding: 15px;
+    border: 1px solid red;
+}
+
+.info {
+    display: flex;
+    flex-direction: row wrap;
+}
+
+div.info {
+    padding: 15px;
+}

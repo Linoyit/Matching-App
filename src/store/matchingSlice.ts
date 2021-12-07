@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface User {
   username: string,
@@ -7,23 +7,18 @@ export interface User {
   imageUrl: string,
 }
 
-// const DATA_ENDPOINT = '/data.json';
+export interface matchingState {
+  matches: Array<User>;
+  isLoggedIn: boolean;
+  questions: Array<string>;
+  userAnswers: Array<string>;
+}
 
-// export const fetchTriviaQuestions = createAsyncThunk(
-//   'matching/fetchCollection',
-//   async () => {
-//     const response = await fetch(DATA_ENDPOINT);
-    
-//     const dataAsJson = await response.json();
-//     return dataAsJson;
-//   }
-// );
-
-const initialState: any = {
-  matches: [ {username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
+const initialState: matchingState = {
+  matches: [{username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
             {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
             {username: 'sldnf', firstName: 'Maya', age: 26, imageUrl: 'logo.svg'}],
-  isLoggedIn : Boolean,
+  isLoggedIn : false,
   questions: ['Age', 'Height', 'Gender'],
   userAnswers: [],
 };
@@ -41,13 +36,6 @@ export const matchingSlice = createSlice({
     },
 
   },
-  extraReducers: (builder) => {
-    builder
-    // .addCase(fetchTriviaQuestions.fulfilled, (state, action:PayloadAction<any>) => {
-    //     state.items = action.payload;
-    //     state.userSelections = new Array<number>(state.items.length).fill(-1);
-    // });
-  }
 });
 
 // Action creators are generated for each case reducer function
