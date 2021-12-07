@@ -17,6 +17,11 @@ export interface matchingState {
 const initialState: matchingState = {
   matches: [{username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
             {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
             {username: 'sldnf', firstName: 'Maya', age: 26, imageUrl: 'logo.svg'}],
   isLoggedIn : false,
   questions: ['Age', 'Height', 'Gender'],

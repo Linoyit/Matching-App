@@ -6,15 +6,14 @@ interface IProps {
 
 const MatchBox: React.FC<IProps> = ({ user }) => {
     return (
-       <div className="match-box">
-           Match box: { user.username }
-           <img src="logo.svg" alt="profilePic" />
-           <div className="info">
-                <div>{ user.firstName }</div> 
-                {" "}|{" "}
-                <div>{ user.age }</div>
-           </div>
-       </div>
+        <div className="match-box">
+                <img src="logo.svg" alt="profilePic" />
+                <div className="info">
+                        <div>{ user.firstName }</div> 
+                        {" "}|{" "}
+                        <div>{ user.age }</div>
+                </div>
+        </div>
     );
 }
 

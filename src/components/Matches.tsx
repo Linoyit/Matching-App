@@ -1,22 +1,18 @@
 import { useAppSelector } from "../store/hooks";
 import { User } from "../store/matchingSlice";
 import MatchBox from "./MatchBox";
+import './Matches.css';
 
 const Matches: React.FC = () => {
     const matches = useAppSelector((state) => state.matching.matches);
     return (
-       <div>
-           Matching List
-           <ul></ul>
-            <ul>
-                <li>
-                    { matches.map((user: User) =>
-                        <MatchBox user={user}/>)
-                    }
-                </li>
-            </ul>
-       </div>
+        <div className="container">
+            <div className="box">
+                { matches.map((user: User) =>
+                    <MatchBox user={user}/>)
+                }
+            </div>
+        </div>
     );
 }
-
 export default Matches

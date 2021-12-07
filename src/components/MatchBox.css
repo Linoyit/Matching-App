@@ -1,18 +1,23 @@
 
 .match-box > img {
-    float: right;
+    position: relative;
+    margin: 5px;
+    border: 1px solid blue;
 }
 
 .match-box {
-    padding: 15px;
     border: 1px solid red;
+    margin: 5px;
 }
 
 .info {
     display: flex;
-    flex-direction: row wrap;
+    flex-flow: row wrap;
 }
 
-div.info {
-    padding: 15px;
+.info > div {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    color: green;
 }

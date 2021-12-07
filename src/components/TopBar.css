@@ -1,0 +1,10 @@
+.topbar{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+}
