@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import triviaReducer from './slice'
+import matchingReducer from './matchingSlice'
 
 export const store = configureStore({
   reducer: {
-      trivia: triviaReducer,
+      matching: matchingReducer,
   },
 })
 

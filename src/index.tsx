@@ -12,7 +12,7 @@ import MatchProfile from './components/MatchProfile';
 import MyProfile from './components/MyProfile';
 import Inbox from './components/Inbox';
 import PrivateChat from './components/PrivateChat';
-import MatchingList from './components/MatchingList';
+import Main from './components/Main';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -21,12 +21,12 @@ ReactDOM.render(
     <Route path="signup" element={<SignUp/>} />
     <Route path="login" element={<Login/>} />
     <Route path="/" element={<HomePage/>} >
-      <Route index element={<MatchingList/>} />
-      <Route path="profile" element={<MyProfile/>} />
-      <Route path=":id" element={<MatchProfile/>} />
-      <Route path="inbox" element={<Inbox/>} >
-        <Route path=":chatName" element={<PrivateChat/>} />
-      </Route>
+        <Route index element={<Main/>} />
+        <Route path="profile" element={<MyProfile/>} />
+        <Route path=":id" element={<MatchProfile/>} />
+        <Route path="inbox" element={<Inbox/>} >
+            <Route path=":chatName" element={<PrivateChat/>} />
+        </Route>
     </Route>
 
   </Routes>
