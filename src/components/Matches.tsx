@@ -9,7 +9,7 @@ const Matches: React.FC = () => {
         <div className="container">
             <div className="box">
                 { matches.map((user: User) =>
-                    <MatchBox user={user}/>)
+                    <MatchBox user={user} key={user.username}/>)
                 }
             </div>
         </div>

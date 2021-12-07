@@ -6,9 +6,11 @@ const FilterView: React.FC = () => {
         display = display = 'none'? 'block' : 'none';
     }
     
-    const getStyle = {
-        
-    }
+    // const getStyle = {
+    //     display: {display},
+    //     overflow: 'hidden',
+    //     background-color: #'f1f1f1',
+    // }
     return (
        <div className="filterContainer">
            <button className="collapsible" onClick={handleClick}>Gender</button>

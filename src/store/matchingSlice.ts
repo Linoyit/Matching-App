@@ -7,11 +7,22 @@ export interface User {
   imageUrl: string,
 }
 
+export interface Profile {
+  username: string,
+  password: string,
+  nickName: string,
+  imageUrl: string,
+  about: string,
+  userAnswers: Array<any>,
+}
+
 export interface matchingState {
   matches: Array<User>;
   isLoggedIn: boolean;
   questions: Array<string>;
   userAnswers: Array<string>;
+  currentUser: Array<any>
+  profile: Profile;
 }
 
 const initialState: matchingState = {
@@ -26,6 +37,9 @@ const initialState: matchingState = {
   isLoggedIn : false,
   questions: ['Age', 'Height', 'Gender'],
   userAnswers: [],
+  profile: {  username: 'Linoy', password: '1234', nickName: 'Linoyit', imageUrl: 'logo.svg', 
+              about: 'Im happy', userAnswers: [28, 1.55, 'F']},
+  currentUser: [{username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'}, ]
 };
 
 export const matchingSlice = createSlice({
