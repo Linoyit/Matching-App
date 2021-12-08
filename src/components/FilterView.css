@@ -12,10 +12,6 @@
     cursor: pointer;
 }
 
-p {
-    display: none; 
-    overflow: hidden;
-}
 .filterContainer {
     position: sticky;
     width: 15%;

@@ -14,14 +14,14 @@ const WelcomePage: React.FC = () => {
     
     return (
         
-    <div className="container">
+    <div className="welcomeContainer">
       <div className ="top">
           <div id="logo">logo</div>
           <button id="login" onClick={() => handleClick("login")} >Log in</button>
       </div>
        <div>
          <h1>DATING FOR EVERY SINGLE PERSON</h1>
-         <div id="text">
+         <div id="welcomeText">
          <p>OkCupid is the only dating app that matches you on what matters to you.</p>
          <p>You deserve to find who you’re looking for.</p>     
          <p>Meet them today!</p>

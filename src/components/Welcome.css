@@ -3,7 +3,7 @@
     justify-content: space-between;
 }
 
-.container{
+.welcomeContainer{
   height: 800px;
   max-width: 80%;
   background-color:rosybrown;
@@ -24,7 +24,8 @@
     height: 50px;
     margin-top : 30px;
 }
-#text{
+#welcomeText{
+    color:white;
     margin-top: 30px;
     font-size:large;
 }
