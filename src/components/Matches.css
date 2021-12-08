@@ -1,9 +1,21 @@
 
 .container {
-    max-width: 60%;
+    max-width: 95%;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     border-radius: 5px;
+}
+
+@media screen and (min-width: 400px) {
+    .container {
+        max-width: 60%;
+        margin: auto;
+        background-color: white;
+        border-radius: 5px;
+    }
 }
 
 .container > div {
@@ -14,5 +26,4 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    
 }

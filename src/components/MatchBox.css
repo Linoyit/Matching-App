@@ -1,12 +1,7 @@
 
-.match-box > img {
-    position: relative;
-    margin: 5px;
-    border: 1px solid blue;
-}
-
 .match-box {
     border: 1px solid red;
+    border-radius: 5px;
     margin: 5px;
 }
 
@@ -21,3 +16,16 @@
     margin-bottom: 5px;
     color: green;
 }
+
+.box_img {
+    position: relative;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color:blue;
+}
+ img {
+     max-width: 100px;
+     height: auto;
+ }

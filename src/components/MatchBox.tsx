@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { User } from "../store/matchingSlice";
 import './MatchBox.css';
 interface IProps { 
@@ -5,9 +6,27 @@ interface IProps {
 }
 
 const MatchBox: React.FC<IProps> = ({ user }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`./${user.username}`);
+    }
+
+    const boxStyle = {
+        position: 'relative',
+        marginBottom: '5px',
+        width: '100px',
+        height: '100px',
+        borderRadius: '50%',
+        backgroundColor:'blue',
+        backgroundImage: `url(${user.imageUrl})`,
+    };
+
     return (
-        <div className="match-box">
-                <img src="logo.svg" alt="profilePic" />
+        <div className="match-box" onClick={handleClick}>
+                <div className="box_img">
+                    {/* <img src={user.imageUrl} alt="profilePic" /> */}
+                </div>
                 <div className="info">
                         <div>{ user.firstName }</div> 
                         {" "}|{" "}
