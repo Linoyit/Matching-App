@@ -1,7 +1,9 @@
+import Enter from "./Enter";
+
 const Login: React.FC = () => {
     return (
        <div>
-           Login
+           <Enter isJoin={true}/>
        </div>
     );
 }
