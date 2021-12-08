@@ -1,0 +1,22 @@
+.matchProfile{
+    width:90%;
+    height:auto; 
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftSide{
+    border: 1px solid rgb(214, 33, 33);
+    width: 50%;
+}
+
+.about {
+    border: 1px solid rgb(235, 251, 7);
+}
+
+.rightSide {
+    border: 1px solid rgb(8, 31, 243);
+    width: 50%;
+
+}

@@ -1,0 +1,22 @@
+#labelQuestions{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* #loction{
+    margin-right: 20px;
+}
+#gender{
+    margin-left: 20px;
+} */
+.userBirth{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+#firstLine{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
