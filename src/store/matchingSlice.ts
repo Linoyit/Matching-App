@@ -26,14 +26,14 @@ export interface matchingState {
 }
 
 const initialState: matchingState = {
-  matches: [{username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'lknfkf', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: 'sldnf', firstName: 'Maya', age: 26, imageUrl: 'logo.svg'}],
+  matches: [{username: '1', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
+            {username: '2', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '3', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '4', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '5', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '6', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '7', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
+            {username: '8', firstName: 'Maya', age: 26, imageUrl: 'logo.svg'}],
   isLoggedIn : false,
   questions: ['Age', 'Height', 'Gender'],
   userAnswers: [],

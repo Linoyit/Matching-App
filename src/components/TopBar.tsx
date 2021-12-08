@@ -12,7 +12,7 @@ const Topbar: React.FC = () => {
             </div>
 
             <div className="topbar-right">
-                <button onClick={()=> {navigate("../MyProfile")}}>My Profile</button>
+                <button onClick={()=> {navigate("../Profile")}}>My Profile</button>
                 <button onClick={()=> {navigate("../Inbox")}}>Inbox Msg</button>
                 <button onClick={()=> {navigate("../Login")}}>Sign Out</button>
             </div>
