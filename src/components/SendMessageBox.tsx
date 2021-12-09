@@ -7,6 +7,7 @@ const SendMessageBox: React.FC = () => {
 
   const handleSend = () => {
       console.log(newItem.value);
+      newItem.onChange('');
   };
 
   return (
