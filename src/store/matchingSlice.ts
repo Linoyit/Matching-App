@@ -1,67 +1,259 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface User {
-  username: string,
-  firstName: string,
-  age: number,
-  imageUrl: string,
+  username: string;
+  firstName: string;
+  // age: number;
+  imageUrl: string;
+  about: string;
+  userSelections: Array<selection>;
+}
+export interface selection {
+  type: string;
+  answer: string;
 }
 
 export interface Profile {
-  username: string,
-  password: string,
-  nickName: string,
-  imageUrl: string,
-  about: string,
-  userAnswers: Array<any>,
+  user: User;
+  password: string;
+  isLoggedIn: boolean;
+}
+
+export interface QuestionInfo {
+  type: string;
+  question?: string;
+  options: Array<string>;
+  filterOptions?: Array<string>;
 }
 
 export interface matchingState {
-  matches: Array<User>;
-  isLoggedIn: boolean;
-  questions: Array<string>;
-  userAnswers: Array<string>;
-  currentUser: Array<any>
   profile: Profile;
+  matches: Array<User>;
+  filterSelections: Array<{ type: string; selection: Array<selection> }>;
+  QuestionsInfo: Array<QuestionInfo>;
 }
 
 const initialState: matchingState = {
-  matches: [{username: '1', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'},
-            {username: '2', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '3', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '4', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '5', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '6', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '7', firstName: 'Tehila', age: 34, imageUrl: 'logo.svg'},
-            {username: '8', firstName: 'Maya', age: 26, imageUrl: 'logo.svg'}],
-  isLoggedIn : false,
-  questions: ['Age', 'Height', 'Gender'],
-  userAnswers: [],
-  profile: {  username: 'Linoy', password: '1234', nickName: 'Linoyit', imageUrl: 'logo.svg', 
-              about: 'Im happy', userAnswers: [28, 1.55, 'F']},
-  currentUser: [{username: 'lsjsbd', firstName: 'linoy', age: 28, imageUrl: 'logo.svg'}, ]
+  profile: {
+    user: {
+      username: '10',
+      firstName: 'linoy',
+      // age: 28,
+      imageUrl: 'simpson.jpeg',
+      about: 'Im handsome',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    password: '1234',
+    isLoggedIn: true,
+  },
+  matches: [
+    {
+      username: '1',
+      firstName: 'linoy',
+      // age: 28,
+      about: 'Im handsome',
+      imageUrl: 'simpson.jpeg',
+      userSelections: [
+        { type: 'Location', answer: 'Yehud' },
+        { type: 'Age', answer: '29' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'Yes' },
+        { type: 'Food', answer: 'Cheese' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'No' },
+      ],
+    },
+    {
+      username: '2',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'profilePic.jpeg',
+      userSelections: [
+        { type: 'Location', answer: 'Jerusalem' },
+        { type: 'Age', answer: '30' },
+        { type: 'Gender', answer: 'Male' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Fries' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '3',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '31' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '4',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '5',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '6',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '7',
+      firstName: 'Tehila',
+      // age: 34,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+    {
+      username: '8',
+      firstName: 'Maya',
+      // age: 26,
+      about: 'Im handsome',
+      imageUrl: 'logo.svg',
+      userSelections: [
+        { type: 'Location', answer: 'Tel-Aviv' },
+        { type: 'Age', answer: '28' },
+        { type: 'Gender', answer: 'Female' },
+        { type: 'Smoking', answer: 'No' },
+        { type: 'Food', answer: 'Pasta' },
+        { type: 'Religion', answer: 'Traditional' },
+        { type: 'Animals', answer: 'Yes' },
+      ],
+    },
+  ],
+  QuestionsInfo: [
+    { type: 'Gender', options: ['Woman', 'Men'] },
+    {
+      type: 'Age',
+      options: [
+        '18',
+        '19',
+        '20',
+        '21',
+        '22',
+        '23',
+        '24',
+        '25',
+        '26',
+        '27',
+        '28',
+        '29',
+        '30',
+      ],
+      filterOptions: ['18-25', '25-35', '35-45', '45+'],
+    },
+    {
+      type: 'Location',
+      options: ['Jerusalem', 'Tel-Aviv', 'New-York'],
+    },
+    {
+      type: 'Religion',
+      question: 'What is your Religion?',
+      //TODO: check namings below
+      options: ['Hiloni', 'Ethaist', 'Mesorati', 'Haredi'],
+    },
+    {
+      type: 'Food',
+      question: 'What is your food preference?',
+      options: ['Carnibor', 'Vegeterian', 'Vegan'],
+    },
+    {
+      type: 'Animals',
+      question: 'Do you love animals?',
+      options: ['Yes', 'No'],
+    },
+    {
+      type: 'Smoking',
+      question: 'Do you smoke?',
+      options: ['Yes', 'No'],
+    },
+  ],
+
+  filterSelections: [
+    { type: 'Gender', selection: [] },
+    { type: 'Age', selection: [] },
+    { type: 'Location', selection: [] },
+  ],
 };
 
 export const matchingSlice = createSlice({
-  name: "matching",
+  name: 'matching',
   initialState,
   reducers: {
-
-    setUserAnswer: (state, action: PayloadAction<any>) => {
-    //   const question = state.items.find((item) => item.id === '' + action.payload.questionId);
-    //   if (question) {
-    //     state.userSelections[action.payload.questionId] = action.payload.optionIndex;
-    //   }
+    updateUserPreference: (state, action: PayloadAction<Array<string>>) => {
+      const preference = state.QuestionsInfo.find(
+        (preference) => preference.type === action.payload[0]
+      );
+      if (preference) {
+        const index = preference.options.indexOf(action.payload[1]);
+      }
     },
-
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {
-  setUserAnswer,
-
-} = matchingSlice.actions;
+export const { updateUserPreference } = matchingSlice.actions;
 
 export default matchingSlice.reducer;
-

@@ -7,7 +7,8 @@ interface IProps {
 
 const MatchBox: React.FC<IProps> = ({ user }) => {
     const navigate = useNavigate();
-
+    const age = user.userSelections.find((selection) => selection.type === 'Age')?.answer;
+    
     const handleClick = () => {
         navigate(`./${user.username}`);
     }
@@ -30,7 +31,8 @@ const MatchBox: React.FC<IProps> = ({ user }) => {
                 <div className="info">
                         <div>{ user.firstName }</div> 
                         {" "}|{" "}
-                        <div>{ user.age }</div>
+                         {/* { <div>{ user.age }</div> }  */}
+                        {  <div>{ age }</div>  }
                 </div>
         </div>
     );

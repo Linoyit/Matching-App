@@ -23,12 +23,14 @@
 
 .leftSide{
     border: 1px solid rgb(214, 33, 33);
+
 }
 
 .about {
     border: 1px solid rgb(235, 251, 7);
     margin: 5px;
     padding: 5px;
+
 }
 
 .rightSide {
