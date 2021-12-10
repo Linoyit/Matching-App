@@ -1,10 +1,11 @@
-
 .container {
     max-width: 95%;
     margin: auto;
+    position: relative;
+    top: 20px;
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
-    align-items: center;
     background-color: white;
     border-radius: 5px;
 }
@@ -12,6 +13,13 @@
 @media screen and (min-width: 400px) {
     .container {
         max-width: 60%;
+        max-height:90%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        position: relative;
+        top: 50px;
+        left:50px;
         margin: auto;
         background-color: white;
         border-radius: 5px;
@@ -23,7 +31,11 @@
 }
 
 .box {
+    background-color:blue;
+    padding: 5px;
+    justify-self: center;
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
+

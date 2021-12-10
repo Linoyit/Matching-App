@@ -1,10 +1,20 @@
-
 .match-box {
     border: 1px solid red;
     border-radius: 5px;
     margin: 5px;
+    height:180px;
+    width:150px;
+    box-shadow: 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+.match-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+    border-radius: 50%;
+    background-color:blue;
+}
 .info {
     display: flex;
     flex-flow: row wrap;
@@ -17,14 +27,13 @@
     color: green;
 }
 
-.box_img {
+/* .box_img {
     position: relative;
     margin-bottom: 5px;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color:blue;
-}
+} */
  img {
      max-width: 100px;
      height: auto;
