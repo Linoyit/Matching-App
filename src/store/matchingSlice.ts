@@ -73,7 +73,6 @@ const initialState: matchingState = {
     {
       username: '2',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -89,7 +88,6 @@ const initialState: matchingState = {
     {
       username: '3',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -105,7 +103,6 @@ const initialState: matchingState = {
     {
       username: '4',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -121,7 +118,6 @@ const initialState: matchingState = {
     {
       username: '5',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -137,7 +133,6 @@ const initialState: matchingState = {
     {
       username: '6',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -153,7 +148,6 @@ const initialState: matchingState = {
     {
       username: '7',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -169,7 +163,6 @@ const initialState: matchingState = {
     {
       username: '8',
       firstName: 'Maya',
-      // age: 26,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -243,7 +236,7 @@ const initialState: matchingState = {
 };
 
 export const matchingSlice = createSlice({
-  name: "matching",
+  name: 'matching',
   initialState,
   reducers: {
     updateUserPreference: (state, action: PayloadAction<Array<string>>) => {
@@ -251,6 +244,7 @@ export const matchingSlice = createSlice({
         (preference) => preference.type === action.payload[0]
       );
       if (preference) {
+        const index = preference.options.indexOf(action.payload[1]);
         const options = preference.filterOptions
           ? preference.filterOptions
           : preference.options;

@@ -1,0 +1,16 @@
+.propertiesBox{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.basicQuestions{
+    margin: 1%;
+    padding: 5px;
+}
+
+.advancedQuestions{
+    margin: 1%;
+    padding: 5px;
+
+}

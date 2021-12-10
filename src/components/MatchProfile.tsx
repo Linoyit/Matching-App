@@ -4,6 +4,7 @@ import MatchBox from './MatchBox';
 import SendMessageBox from './SendMessageBox';
 import { useAppSelector } from '../store/hooks';
 import { User } from '../store/matchingSlice';
+import PropertiesBox from './PropertiesBox';
 
 
 const Matches: React.FC = () => {
@@ -11,7 +12,7 @@ const Matches: React.FC = () => {
     const matches = useAppSelector((state) => state.matching.matches);
     const {id} = useParams();
     const finduser: User|undefined = matches.find((user: User) => user.username === id)
-    const user = finduser ? finduser : matches[0];
+    const user: User = finduser ? finduser : matches[0];
     
     return (
         <>
@@ -24,11 +25,13 @@ const Matches: React.FC = () => {
             <div className="leftSide">
                 <MatchBox user={user}/>
                 <div className="about">
-                    about myself...
+                    <b>About myself...</b>
+                    <p>{user.about}</p>
                 </div>
             </div>
 
             <div className="rightSide">
+                <PropertiesBox user={user}/>
                 <SendMessageBox/>
             </div>
             
