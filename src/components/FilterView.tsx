@@ -8,9 +8,8 @@ import { useCollection } from "../utils/useCollection";
 import './FilterView.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee, faFilter } from '@fortawesome/free-solid-svg-icons'
-
-library.add(fab, faCheckSquare, faCoffee, faFilter)
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faFilter)
 
 interface FilterProps {
   type: string;

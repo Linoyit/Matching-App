@@ -205,7 +205,7 @@ const initialState: matchingState = {
       type: 'Religion',
       question: 'What is your Religion?',
       //TODO: check namings below
-      options: ['Hiloni', 'Ethaist', 'Mesorati', 'Haredi'],
+      options: ['Secular', 'atheist', 'Traditional', 'Orthodox'],
     },
     {
       type: 'Food',
@@ -244,7 +244,6 @@ export const matchingSlice = createSlice({
         (preference) => preference.type === action.payload[0]
       );
       if (preference) {
-        const index = preference.options.indexOf(action.payload[1]);
         const options = preference.filterOptions
           ? preference.filterOptions
           : preference.options;

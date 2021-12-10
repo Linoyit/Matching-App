@@ -5,7 +5,12 @@ import SendMessageBox from './SendMessageBox';
 import { useAppSelector } from '../store/hooks';
 import { User } from '../store/matchingSlice';
 import PropertiesBox from './PropertiesBox';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
+library.add(fab, faChevronLeft)
 
 const Matches: React.FC = () => {
     let navigate = useNavigate();
@@ -17,7 +22,7 @@ const Matches: React.FC = () => {
     return (
         <>
         <div>
-            <button onClick={()=> {navigate("/")}}>back</button>
+            <button onClick={()=> {navigate("/")}}><FontAwesomeIcon icon="chevron-left" color="black"/></button>
         </div>
 
         <div className="matchProfile">
