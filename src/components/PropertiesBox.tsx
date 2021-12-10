@@ -1,12 +1,19 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../store/hooks';
 import { QuestionInfo, selection, User } from '../store/matchingSlice';
+import { AdvanceQuestion } from './AdvanceQuestion';
+import EditContent from './EditContent';
 import './PropertiesBox.css';
+library.add(fab, faUtensils)
 
 interface IProps {
   user: User;
+  edit: boolean;
 }
 
-const findAnswer = (
+export const findAnswer = (
   questionInfo: QuestionInfo,
   userSelections: Array<selection>
 ) => {
@@ -16,7 +23,7 @@ const findAnswer = (
   return a;
 };
 
-const Matches: React.FC<IProps> = ({ user }) => {
+const Matches: React.FC<IProps> = ({ user, edit }) => {
   const questionsInfo = useAppSelector((state) => state.matching.QuestionsInfo);
   const userSelections: Array<selection> = user.userSelections;
 
@@ -32,6 +39,7 @@ const Matches: React.FC<IProps> = ({ user }) => {
           <li key={index}>
             <p>
               <b>{questionInfo.type}: </b>
+              { edit ? <EditContent /> : null }
               <i>{findAnswer(questionInfo, userSelections)?.answer}</i>
             </p>
           </li>
@@ -40,12 +48,7 @@ const Matches: React.FC<IProps> = ({ user }) => {
       <ul className='advancedQuestions'>
         {advancedQuestions.map((questionInfo, index) => (
           <li key={index}>
-            <p>
-              <b>{questionInfo.question}</b>
-            </p>
-            <p>
-              <i>{findAnswer(questionInfo, userSelections)?.answer}</i>
-            </p>
+            <AdvanceQuestion questionInfo={questionInfo} userSelections={userSelections} edit={edit} />
           </li>
         ))}
       </ul>
@@ -53,4 +56,8 @@ const Matches: React.FC<IProps> = ({ user }) => {
   );
 };
 
+
+
 export default Matches;
+
+

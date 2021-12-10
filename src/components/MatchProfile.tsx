@@ -8,9 +8,8 @@ import PropertiesBox from './PropertiesBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
 
-library.add(fab, faChevronLeft)
+library.add(faChevronLeft)
 
 const Matches: React.FC = () => {
     let navigate = useNavigate();
@@ -18,10 +17,11 @@ const Matches: React.FC = () => {
     const {id} = useParams();
     const finduser: User|undefined = matches.find((user: User) => user.username === id)
     const user: User = finduser ? finduser : matches[0];
-    
+    const edit = false;
+
     return (
         <>
-        <div>
+        <div className="back">
             <button onClick={()=> {navigate("/")}}><FontAwesomeIcon icon="chevron-left" color="black"/></button>
         </div>
 
@@ -36,7 +36,7 @@ const Matches: React.FC = () => {
             </div>
 
             <div className="rightSide">
-                <PropertiesBox user={user}/>
+                <PropertiesBox user={user} edit={edit}/>
                 <SendMessageBox/>
             </div>
             
