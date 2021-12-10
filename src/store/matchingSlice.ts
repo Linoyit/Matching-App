@@ -28,7 +28,7 @@ export interface QuestionInfo {
 export interface matchingState {
   profile: Profile;
   matches: Array<User>;
-  filterSelections: Array<{ type: string; selection: Array<selection> }>;
+  filterSelections: Array<{ type: string; selection: Array<boolean> }>;
   QuestionsInfo: Array<QuestionInfo>;
 }
 
@@ -73,9 +73,8 @@ const initialState: matchingState = {
     {
       username: '2',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'profilePic.jpeg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Jerusalem' },
         { type: 'Age', answer: '30' },
@@ -89,9 +88,8 @@ const initialState: matchingState = {
     {
       username: '3',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '31' },
@@ -105,9 +103,8 @@ const initialState: matchingState = {
     {
       username: '4',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '28' },
@@ -121,9 +118,8 @@ const initialState: matchingState = {
     {
       username: '5',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '28' },
@@ -137,9 +133,8 @@ const initialState: matchingState = {
     {
       username: '6',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '28' },
@@ -153,9 +148,8 @@ const initialState: matchingState = {
     {
       username: '7',
       firstName: 'Tehila',
-      // age: 34,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '28' },
@@ -169,9 +163,8 @@ const initialState: matchingState = {
     {
       username: '8',
       firstName: 'Maya',
-      // age: 26,
       about: 'Im handsome',
-      imageUrl: 'logo.svg',
+      imageUrl: 'simpson.jpeg',
       userSelections: [
         { type: 'Location', answer: 'Tel-Aviv' },
         { type: 'Age', answer: '28' },
@@ -235,6 +228,10 @@ const initialState: matchingState = {
     { type: 'Gender', selection: [] },
     { type: 'Age', selection: [] },
     { type: 'Location', selection: [] },
+    { type: 'Religion', selection: [] },
+    { type: 'Food', selection: [] },
+    { type: 'Animals', selection: [] },
+    { type: 'Smoking', selection: [] },
   ],
 };
 
@@ -248,6 +245,16 @@ export const matchingSlice = createSlice({
       );
       if (preference) {
         const index = preference.options.indexOf(action.payload[1]);
+        const options = preference.filterOptions
+          ? preference.filterOptions
+          : preference.options;
+        const index = options.indexOf(action.payload[1]);
+        const filterSelection = state.filterSelections.find(
+          (filter) => filter.type === action.payload[0]
+        );
+        if (filterSelection) {
+          filterSelection.selection[index] = !filterSelection.selection[index];
+        }
       }
     },
   },
