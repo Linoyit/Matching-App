@@ -59,7 +59,7 @@ export const AdvanceQuestion: React.FC<IProps> = ({
   return (
     <div className='advancedQuestion'>
       <p>
-        <FontAwesomeIcon icon={findIcon(questionInfo.type)} color='white' />
+        <FontAwesomeIcon icon={findIcon(questionInfo.type)} color='black' />
         <b>{'  ' + questionInfo.question}</b>
         {edit ? <EditContent handleClick={display.handleClick} /> : null}
       </p>

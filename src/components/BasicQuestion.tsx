@@ -3,36 +3,46 @@ import { QuestionInfo, selection } from '../store/matchingSlice';
 import EditContent from './EditContent';
 
 interface IProps {
-    onToggleChange: (type:string, option:string) => void;
-    questionInfo: QuestionInfo
-    userSelections: Array<selection>
-    edit: boolean
+  onToggleChange: (type: string, option: string) => void;
+  questionInfo: QuestionInfo;
+  userSelections: Array<selection>;
+  edit: boolean;
 }
 
 export const findAnswer = (
-    questionInfo: QuestionInfo,
-    userSelections: Array<selection>
-  ) => {
-    const a = userSelections.find(
-      (selection) => selection.type === questionInfo.type
-    );
-    return a;
-  };
+  questionInfo: QuestionInfo,
+  userSelections: Array<selection>
+) => {
+  const a = userSelections.find(
+    (selection) => selection.type === questionInfo.type
+  );
+  return a;
+};
 
-const isThisUserAnswer = (questionInfo: QuestionInfo, userSelections:Array<selection>, option:string): boolean => {
-    const answer = findAnswer(questionInfo, userSelections)?.answer;
-    const output = (answer === option) ? true : false;
-    return output;
-  }
+const isThisUserAnswer = (
+  questionInfo: QuestionInfo,
+  userSelections: Array<selection>,
+  option: string
+): boolean => {
+  const answer = findAnswer(questionInfo, userSelections)?.answer;
+  const output = answer === option ? true : false;
+  return output;
+};
 
-export const BasicQuestion: React.FC<IProps> = ({onToggleChange, questionInfo, userSelections, edit}) => {
+export const BasicQuestion: React.FC<IProps> = ({
+  onToggleChange,
+  questionInfo,
+  userSelections,
+  edit,
+}) => {
   const display = useDisplayState();
 
   const handleChange = (option: string, questionInfo: QuestionInfo) => {
     onToggleChange(questionInfo.type, option);
   };
   return (
-    <li key={questionInfo.type}>
+    <>
+      {' '}
       <p>
         <b>{questionInfo.type}: </b>
         {edit ? <EditContent handleClick={display.handleClick} /> : null}
@@ -54,6 +64,6 @@ export const BasicQuestion: React.FC<IProps> = ({onToggleChange, questionInfo, u
           </label>
         ))}
       </div>
-    </li>
+    </>
   );
 };

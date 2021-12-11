@@ -11,7 +11,9 @@ interface IProps{
 const EditContent: React.FC<IProps> = (props: IProps) => {
    
     return (
-        <button onClick={props.handleClick}><FontAwesomeIcon icon="edit" color='black' /></button>
+        // <button onClick={props.handleClick}><FontAwesomeIcon icon="edit" color='black' /></button>
+        <span><FontAwesomeIcon onClick={props.handleClick} icon="edit" color='black' /></span>
+
     );
 }
 export default EditContent

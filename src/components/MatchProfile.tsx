@@ -17,7 +17,6 @@ const Matches: React.FC = () => {
     const {id} = useParams();
     const finduser: User|undefined = matches.find((user: User) => user.username === id)
     const user: User = finduser ? finduser : matches[0];
-    const edit = false;
 
     const dispatch = useAppDispatch();
     function onToggleChange(type:string, option:string) {
@@ -41,7 +40,7 @@ const Matches: React.FC = () => {
             </div>
 
             <div className="rightSide">
-                <PropertiesBox user={user} edit={edit} onToggleChange={onToggleChange}/>
+                <PropertiesBox user={user} edit={false} onToggleChange={onToggleChange}/>
                 <SendMessageBox/>
             </div>
             

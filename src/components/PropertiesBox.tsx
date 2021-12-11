@@ -25,7 +25,14 @@ const Matches: React.FC<IProps> = ({ user, edit, onToggleChange }) => {
     <div className='propertiesBox'>
       <ul className='basicQuestions'>
         {basicQuestions.map((questionInfo, index) => (
-          <BasicQuestion onToggleChange={onToggleChange} edit={edit} questionInfo={questionInfo} userSelections={userSelections}/>
+          <li key={index}>
+          <BasicQuestion
+            onToggleChange={onToggleChange}
+            edit={edit}
+            questionInfo={questionInfo}
+            userSelections={userSelections}
+          />
+          </li>
         ))}
       </ul>
       <ul className='advancedQuestions'>
