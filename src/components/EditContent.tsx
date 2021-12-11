@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
-
+import './EditContent.css'
 library.add(faEdit)
 
 interface IProps{
@@ -11,9 +11,7 @@ interface IProps{
 const EditContent: React.FC<IProps> = (props: IProps) => {
    
     return (
-        // <button onClick={props.handleClick}><FontAwesomeIcon icon="edit" color='black' /></button>
-        <span><FontAwesomeIcon onClick={props.handleClick} icon="edit" color='black' /></span>
-
+        <span><FontAwesomeIcon className="fa-edit" onClick={props.handleClick} icon="edit" color='black' /></span>
     );
 }
 export default EditContent

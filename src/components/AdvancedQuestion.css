@@ -7,10 +7,6 @@ p {
   padding: 1%;
 }
 
-p > span{
-  float: right;
-}
-
 input{
   margin: 2%;
 }

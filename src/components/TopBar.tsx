@@ -24,7 +24,6 @@ const Topbar: React.FC = () => {
       </div>
 
       <div className='topbar-right'>
-        {/* <button onClick={()=> {navigate("../Profile")}}>My Profile</button> */}
         <button
           onClick={() => {
             navigate('../Profile');

@@ -46,9 +46,7 @@ export const BasicQuestion: React.FC<IProps> = ({
       <p>
         <b>{questionInfo.type}: </b>
         {edit ? <EditContent handleClick={display.handleClick} /> : null}
-        <i style={display.oppositeStyle}>
           {findAnswer(questionInfo, userSelections)?.answer}
-        </i>
       </p>
       <div style={display.btnStyle}>
         {questionInfo.options.map((option, index) => (
