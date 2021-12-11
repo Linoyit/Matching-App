@@ -1,5 +1,5 @@
 
-.matchProfile{
+.myProfile{
     height:auto; 
     margin: auto;
     width:95%;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 400px) {
-    .matchProfile{
+    .myProfile{
         width:70%;
         flex-direction: row;
     }
@@ -40,6 +40,6 @@
 
 }
 
-.back{
-    position: fixed;
+div > span{
+    float: right;
 }

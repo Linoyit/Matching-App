@@ -256,10 +256,30 @@ export const matchingSlice = createSlice({
         }
       }
     },
+
+    updateUserSelections: (state, action: PayloadAction<Array<string>>) => {
+      let selection = state.profile.user.userSelections.find((selection) => 
+        selection.type === action.payload[0]
+      );
+      if (selection) {
+        selection.answer = action.payload[1];
+      }
+    },
+
+    updateUserProperties: (state, action: PayloadAction<Array<string>>) => {
+      let profile = state.profile;
+      console.log(action);
+      switch (action.payload[0]){
+        case 'about': profile.user.about = action.payload[1]; break;
+        case 'firstName': profile.user.firstName = action.payload[1]; break;
+        case 'imageUrl': profile.user.imageUrl = action.payload[1]; break;
+        case 'password': profile.password = action.payload[1]; break;
+      }
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { updateUserPreference } = matchingSlice.actions;
+export const { updateUserPreference, updateUserSelections, updateUserProperties } = matchingSlice.actions;
 
 export default matchingSlice.reducer;
