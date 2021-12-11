@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { QuestionInfo, selection } from '../store/matchingSlice';
-import { findAnswer } from './PropertiesBox';
+import { findAnswer } from './BasicQuestion';
 import './AdvancedQuestion.css';
 import EditContent from './EditContent';
 import { useDisplayState } from '../hooks/useDisplayState';

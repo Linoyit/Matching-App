@@ -263,7 +263,6 @@ export const matchingSlice = createSlice({
       );
       if (selection) {
         selection.answer = action.payload[1];
-        console.log(selection.answer);
       }
     },
   },
