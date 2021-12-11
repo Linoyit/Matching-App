@@ -60,7 +60,7 @@ export const BasicQuestion: React.FC<IProps> = ({
         {edit ? <EditContent handleClick={display.handleClick} /> : null}
           {findAnswer(questionInfo, userSelections)?.answer}
       </p>
-      <div className={btnStyle}>
+      <div style={display.btnStyle}>
         {questionInfo.options.map((option, index) => (
           <label key={index + questionInfo.type}>
             <input
