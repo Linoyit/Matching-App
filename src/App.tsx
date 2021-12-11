@@ -1,10 +1,13 @@
 
 import './App.css';
+import FilterView from './components/FilterView';
+import Matches from './components/Matches';
 
 function App() {
   return (
     <div className="App">
-      App
+      <FilterView/>
+      <Matches/>
     </div>
   );
 }

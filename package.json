@@ -26,6 +26,8 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "stream-chat": "^5.0.1",
+    "stream-chat-react": "^6.12.2",
     "typescript": "^4.5.2",
     "web-vitals": "^1.1.2"
   },

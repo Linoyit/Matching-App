@@ -9,6 +9,7 @@ import { useFormInput } from '../hooks/useFormInput';
 import UserPrivateDetails from './UserPrivateDetails';
 
 const MyProfile: React.FC = () => {
+
   const myProfile = useAppSelector((state) => state.matching.profile);
   const display = useDisplayState();
   const formInput = useFormInput(myProfile.user.about, 'about');

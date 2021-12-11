@@ -10,9 +10,9 @@ import MatchProfile from './components/MatchProfile';
 import MyProfile from './components/MyProfile';
 import Inbox from './components/Inbox';
 import PrivateChat from './components/PrivateChat';
-import Main from './components/Main';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -22,11 +22,11 @@ ReactDOM.render(
         <Route path="signup" element={<SignUp/>} />
         <Route path="login" element={<Login/>} />
         <Route path="/" element={<HomePage/>} >
-            <Route index element={<Main/>} />
+            <Route index element={<App/>} />
             <Route path="profile" element={<MyProfile/>} />
             <Route path=":id" element={<MatchProfile/>} />
-            <Route path="inbox" element={<Inbox/>} >
-                <Route path=":chatName" element={<PrivateChat/>} />
+            <Route path="Inbox" element={<Inbox/>} >
+                <Route path=":chatId" element={<PrivateChat/>} />
             </Route>
         </Route>
       </Routes>
