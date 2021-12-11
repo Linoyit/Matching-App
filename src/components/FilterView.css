@@ -6,21 +6,6 @@
   border: none;
 }
 
-.btnFilterType {
-    border: none;
-    border-bottom-style: groove;
-    text-align: left;
-    font-size: 16px;
-    padding: 10px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    transition: 0.4s;
-}
-
-.btnFilterType:hover {
-  color: red;
-}
-
 .input {
     padding: 5px;
     margin-left: 10px;
