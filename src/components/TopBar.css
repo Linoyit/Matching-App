@@ -1,5 +1,4 @@
 .topbar{
-    background-color: white;
     padding-top: 20px;
     padding-bottom: 20px;
     position: -webkit-sticky; /* Safari */
@@ -7,4 +6,18 @@
     top: 0;
     display: flex;
     justify-content: space-between;
+    z-index:1
+}
+
+.topbar-right{
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    height:100%;
+}
+
+button > img{
+    width:30px;
 }
