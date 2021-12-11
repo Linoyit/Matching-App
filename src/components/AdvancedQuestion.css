@@ -10,3 +10,7 @@ p {
 p > button {
   float: right;
 }
+
+input{
+  margin: 2%;
+}

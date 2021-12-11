@@ -4,13 +4,13 @@ import { faUtensils } from '@fortawesome/free-solid-svg-icons';
 import { useAppSelector } from '../store/hooks';
 import { QuestionInfo, selection, User } from '../store/matchingSlice';
 import { AdvanceQuestion } from './AdvanceQuestion';
-import EditContent from './EditContent';
 import './PropertiesBox.css';
-library.add(fab, faUtensils)
+library.add(fab, faUtensils);
 
 interface IProps {
   user: User;
   edit: boolean;
+  onToggleChange: any;
 }
 
 export const findAnswer = (
@@ -23,14 +23,34 @@ export const findAnswer = (
   return a;
 };
 
-const Matches: React.FC<IProps> = ({ user, edit }) => {
+// export const Button: React.FC = ({option, selection, handleClick, index, onToggleChange}) => {
+//   const handleChange = (option:string) => {
+//     onToggleChange(questionInfo.type, option);
+//   }
+//   return (
+//     <label key={index}>
+//       <input
+//         type='radio'
+//         value={option}
+//         checked={option === answer}
+//         onChange={() => handleChange(option)}
+//       />
+//       {option}
+//       <br />
+//     </label>
+//   );
+// };
+
+const Matches: React.FC<IProps> = ({ user, edit, onToggleChange }) => {
   const questionsInfo = useAppSelector((state) => state.matching.QuestionsInfo);
   const userSelections: Array<selection> = user.userSelections;
 
   const advancedQuestions = questionsInfo.filter(
     (questionInfo) => questionInfo.question
   );
-  const basicQuestions = questionsInfo.filter((questionInfo) => !questionInfo.question);
+  const basicQuestions = questionsInfo.filter(
+    (questionInfo) => !questionInfo.question
+  );
 
   return (
     <div className='propertiesBox'>
@@ -39,7 +59,7 @@ const Matches: React.FC<IProps> = ({ user, edit }) => {
           <li key={index}>
             <p>
               <b>{questionInfo.type}: </b>
-              { edit ? <EditContent /> : null }
+              {/* { edit ? <EditContent /> : null } */}
               <i>{findAnswer(questionInfo, userSelections)?.answer}</i>
             </p>
           </li>
@@ -48,7 +68,12 @@ const Matches: React.FC<IProps> = ({ user, edit }) => {
       <ul className='advancedQuestions'>
         {advancedQuestions.map((questionInfo, index) => (
           <li key={index}>
-            <AdvanceQuestion questionInfo={questionInfo} userSelections={userSelections} edit={edit} />
+            <AdvanceQuestion
+              questionInfo={questionInfo}
+              userSelections={userSelections}
+              edit={edit}
+              onToggleChange={onToggleChange}
+            />
           </li>
         ))}
       </ul>
@@ -56,8 +81,4 @@ const Matches: React.FC<IProps> = ({ user, edit }) => {
   );
 };
 
-
-
 export default Matches;
-
-

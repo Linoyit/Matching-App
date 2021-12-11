@@ -256,10 +256,20 @@ export const matchingSlice = createSlice({
         }
       }
     },
+
+    updateUserProfile: (state, action: PayloadAction<Array<string>>) => {
+      let selection = state.profile.user.userSelections.find((selection) => 
+        selection.type === action.payload[0]
+      );
+      if (selection) {
+        selection.answer = action.payload[1];
+        console.log(selection.answer);
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { updateUserPreference } = matchingSlice.actions;
+export const { updateUserPreference, updateUserProfile } = matchingSlice.actions;
 
 export default matchingSlice.reducer;

@@ -4,10 +4,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 library.add(faEdit)
 
-const EditContent: React.FC = () => {
+interface IProps{
+    handleClick: () => void;
+}
+
+const EditContent: React.FC<IProps> = (props: IProps) => {
    
     return (
-        <button><FontAwesomeIcon icon="edit" color='black' /></button>
+        <button onClick={props.handleClick}><FontAwesomeIcon icon="edit" color='black' /></button>
     );
 }
 export default EditContent

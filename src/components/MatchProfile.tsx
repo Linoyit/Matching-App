@@ -2,7 +2,7 @@ import './MatchProfile.css';
 import { useNavigate, useParams } from "react-router-dom";
 import MatchBox from './MatchBox';
 import SendMessageBox from './SendMessageBox';
-import { useAppSelector } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { User } from '../store/matchingSlice';
 import PropertiesBox from './PropertiesBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +18,11 @@ const Matches: React.FC = () => {
     const finduser: User|undefined = matches.find((user: User) => user.username === id)
     const user: User = finduser ? finduser : matches[0];
     const edit = false;
+
+    const dispatch = useAppDispatch();
+    function onToggleChange(type:string, option:string) {
+      dispatch(updateUserProfile([type, option]));
+    }
 
     return (
         <>
@@ -36,7 +41,7 @@ const Matches: React.FC = () => {
             </div>
 
             <div className="rightSide">
-                <PropertiesBox user={user} edit={edit}/>
+                <PropertiesBox user={user} edit={edit} onToggleChange={onToggleChange}/>
                 <SendMessageBox/>
             </div>
             
@@ -45,3 +50,7 @@ const Matches: React.FC = () => {
     );
 }
 export default Matches
+
+function updateUserProfile(arg0: string[]): any {
+    throw new Error('Function not implemented.');
+}
