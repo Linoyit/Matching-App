@@ -13,6 +13,7 @@ import PrivateChat from './components/PrivateChat';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './App';
+import ProfileManager from './components/ProfileManager';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,8 +24,8 @@ ReactDOM.render(
         <Route path="login" element={<Login/>} />
         <Route path="/" element={<HomePage/>} >
             <Route index element={<App/>} />
-            <Route path="profile" element={<MyProfile/>} />
-            <Route path=":id" element={<MatchProfile/>} />
+            {/* <Route path="profile" element={<MyProfile/>} /> */}
+            <Route path=":id" element={<ProfileManager/>} />
             <Route path="Inbox" element={<Inbox/>} >
                 <Route path=":chatId" element={<PrivateChat/>} />
             </Route>

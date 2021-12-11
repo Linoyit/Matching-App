@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from '../store/hooks';
 import MatchBox from './MatchBox';
 import PropertiesBox from './PropertiesBox';
 import './MyProfile.css';
-import { updateUserSelections } from '../store/matchingSlice';
+import { updateUserProperties, updateUserSelections } from '../store/matchingSlice';
 import EditContent from './EditContent';
 import { useDisplayState } from '../hooks/useDisplayState';
 import { useFormInput } from '../hooks/useFormInput';
@@ -18,11 +18,17 @@ const MyProfile: React.FC = () => {
     dispatch(updateUserSelections([type, option]));
   }
 
+  const onChange = (event: any) => {
+    console.log(event.target.files[0].name);
+    dispatch(updateUserProperties(['imageUrl', event.target.files[0].name]));
+  }
+
   return (
     <>
       <div className='myProfile'>
         <div className='leftSide'>
           <MatchBox user={myProfile.user} />
+          <input type="file" id="select_image" name="image" onChange={onChange} />
           <UserPrivateDetails />
           <div className='about'>
             <b>About myself...</b>

@@ -1,3 +1,4 @@
+import { css } from '@emotion/css';
 import { useDisplayState } from '../hooks/useDisplayState';
 import { QuestionInfo, selection } from '../store/matchingSlice';
 import EditContent from './EditContent';
@@ -37,6 +38,17 @@ export const BasicQuestion: React.FC<IProps> = ({
 }) => {
   const display = useDisplayState();
 
+  const determineLength = () => {
+
+    const count = Math.round(questionInfo.options.length / 4);
+    console.log(Math.round(questionInfo.options.length / 4));
+    return count;
+
+  }
+  const btnStyle = css`
+    column-count: ${determineLength()};
+    `
+
   const handleChange = (option: string, questionInfo: QuestionInfo) => {
     onToggleChange(questionInfo.type, option);
   };
@@ -48,7 +60,7 @@ export const BasicQuestion: React.FC<IProps> = ({
         {edit ? <EditContent handleClick={display.handleClick} /> : null}
           {findAnswer(questionInfo, userSelections)?.answer}
       </p>
-      <div style={display.btnStyle}>
+      <div className={btnStyle}>
         {questionInfo.options.map((option, index) => (
           <label key={index + questionInfo.type}>
             <input

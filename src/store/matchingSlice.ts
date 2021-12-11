@@ -36,7 +36,7 @@ const initialState: matchingState = {
   profile: {
     user: {
       username: '10',
-      firstName: 'linoy',
+      firstName: 'Moshe',
       // age: 28,
       imageUrl: 'simpson.jpeg',
       about: 'Im handsome',
@@ -56,7 +56,7 @@ const initialState: matchingState = {
   matches: [
     {
       username: '1',
-      firstName: 'linoy',
+      firstName: 'Rina',
       // age: 28,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',

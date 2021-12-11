@@ -8,6 +8,7 @@ import "./FilterView.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { useDisplayState } from "../hooks/useDisplayState";
 library.add(fab, faFilter);
 
 interface FilterProps {
@@ -25,17 +26,6 @@ interface optionProps {
 }
 
 const getFilterStyles = () => {
-  const shownStyle = {
-    display: "block",
-    overflow: "hidden",
-    backgroundColor: "white",
-    color: "black",
-  };
-
-  const hiddenStyle = {
-    display: "none",
-    overflow: "hidden",
-  };
 
   const btnFilterType = css`
     border: none;
@@ -50,7 +40,7 @@ const getFilterStyles = () => {
       color: rgb(192, 47, 72);
     }
   `;
-  return { shownStyle, hiddenStyle, btnFilterType };
+  return { btnFilterType };
 };
 
 const getFilterViewStyles = () => {
@@ -142,19 +132,13 @@ const Filter: React.FC<FilterProps> = ({
   checked,
   onToggleChange,
 }) => {
-  const [display, setDisplay] = useState("none");
-
-  function handleFilterClick() {
-    const val = display === "none" ? "block" : "none";
-    setDisplay(val);
-  }
-
-  const { hiddenStyle, shownStyle, btnFilterType } = getFilterStyles();
-  const btnStyle = display === "none" ? hiddenStyle : shownStyle;
+ 
+  const {  btnFilterType } = getFilterStyles();
+  const {btnStyle, handleClick} = useDisplayState();
 
   return (
     <div className="content">
-      <div className={btnFilterType} onClick={handleFilterClick}>
+      <div className={btnFilterType} onClick={handleClick}>
         {type}
       </div>
       <div style={btnStyle}>

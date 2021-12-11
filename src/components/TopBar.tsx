@@ -4,12 +4,13 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppSelector } from '../store/hooks';
+import { useCollection } from '../utils/useCollection';
 
 library.add(faEnvelope);
 
 const Topbar: React.FC = () => {
   let navigate = useNavigate();
-  const user = useAppSelector((state) => state.matching.profile.user);
+  const {profile} = useCollection();
 
   return (
     <div className='topbar'>
@@ -26,10 +27,10 @@ const Topbar: React.FC = () => {
       <div className='topbar-right'>
         <button
           onClick={() => {
-            navigate('../Profile');
+            navigate(`../${profile.user.username}`);
           }}
         >
-          <img src={user.imageUrl} alt='profilePic' />
+          <img src={profile.user.imageUrl} alt='profilePic' />
         </button>
         <button
           onClick={() => {
