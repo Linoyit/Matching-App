@@ -6,10 +6,13 @@
 .basicQuestions{
     margin: 1%;
     padding: 5px;
+    list-style-type: none;
 }
 
 .advancedQuestions{
     margin: 1%;
     padding: 5px;
+    list-style-type: none;
+
 
 }

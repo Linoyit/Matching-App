@@ -1,13 +1,10 @@
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import HomePage from './components/HomePage';
-import MatchProfile from './components/MatchProfile';
-import MyProfile from './components/MyProfile';
 import Inbox from './components/Inbox';
 import PrivateChat from './components/PrivateChat';
 import { Provider } from 'react-redux';
@@ -24,7 +21,6 @@ ReactDOM.render(
         <Route path="login" element={<Login/>} />
         <Route path="/" element={<HomePage/>} >
             <Route index element={<App/>} />
-            {/* <Route path="profile" element={<MyProfile/>} /> */}
             <Route path=":id" element={<ProfileManager/>} />
             <Route path="Inbox" element={<Inbox/>} >
                 <Route path=":chatId" element={<PrivateChat/>} />
