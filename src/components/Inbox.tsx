@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
-import { useNavigate } from "react-router-dom";
-import { User } from "../store/matchingSlice";
-import { useCollection } from "../utils/useCollection";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useCollection } from "../hooks/useCollection";
+import { User } from "./models/User";
 
 const getChatStyles = () => {
   const imgStyle = css`
@@ -29,7 +29,6 @@ const getChatStyles = () => {
   `;
   const inboxStyle = css`
     margin: 10px;
-    /* background-color: white; */
   `;
   const imgContainerStyle = css`
     width: 15%;
@@ -61,7 +60,7 @@ const Inbox: React.FC = () => {
     getChatStyles();
 
   return (
-    <span className={inboxStyle}>
+    <><span className={inboxStyle}>
       {matches.map((user) => (
         <div className={chatStyle} onClick={() => handleClick(user)}>
           <div className={imgContainerStyle}>
@@ -70,7 +69,7 @@ const Inbox: React.FC = () => {
           <p className={nameStyle}>{user.firstName}</p>
         </div>
       ))}
-    </span>
+    </span><Outlet/></>
   );
 };
 

@@ -1,9 +1,9 @@
 import { useDisplayState } from '../hooks/useDisplayState';
 import { useFormInput } from '../hooks/useFormInput';
 import { useAppSelector } from '../store/hooks';
-import { selection, User } from '../store/matchingSlice';
 import { AdvanceQuestion } from './AdvanceQuestion';
 import { BasicQuestion } from './BasicQuestion';
+import { selection, User } from './models/User';
 import EditContent from './EditContent';
 import './PropertiesBox.css';
 

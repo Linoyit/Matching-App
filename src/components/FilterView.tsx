@@ -3,50 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useAppDispatch } from "../store/hooks";
 import { updateUserPreference } from "../store/matchingSlice";
-import { useCollection } from "../utils/useCollection";
+import { useCollection } from "../hooks/useCollection";
 import "./FilterView.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import { useDisplayState } from "../hooks/useDisplayState";
+import { useQuestions } from "../hooks/useQuestions";
+import Filter from "./Filter";
 library.add(fab, faFilter);
-
-interface FilterProps {
-  type: string;
-  options: Array<string>;
-  checked: Array<boolean>;
-  onToggleChange: (type: string, option: string) => void;
-}
-
-interface optionProps {
-  type: string;
-  option: string;
-  checked: boolean;
-  onToggleChange: (type: string, option: string) => void;
-}
-
-const getFilterStyles = () => {
-
-  const btnFilterType = css`
-    border: none;
-    border-bottom-style: groove;
-    text-align: left;
-    font-size: 20px;
-    padding: 15px;
-    cursor: pointer;
-    background-color: #f1f1f1;
-    transition: 0.4s;
-    &:hover {
-      color: rgb(192, 47, 72);
-    }
-  `;
-  return { btnFilterType };
-};
 
 const getFilterViewStyles = () => {
   const filterBtnStyle = css`
     display: none;
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       display: block;
       width: 35%;
       padding: 10px;
@@ -66,6 +35,7 @@ const FilterView: React.FC = () => {
       width: 0;
     `
   );
+
   function onToggleChange(type: string, option: string) {
     dispatch(updateUserPreference([type, option]));
   }
@@ -77,7 +47,7 @@ const FilterView: React.FC = () => {
     width: 20%;
     height: 100%;
     background-color: #f1f1f1;
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
       position: fixed;
       z-index: 1;
       font-size: 18px;
@@ -85,7 +55,6 @@ const FilterView: React.FC = () => {
       ${filterWidth};
       transition: 0.4s;
       height: 100%;
-      background-color: #f1f1f1;
     }
   `;
 
@@ -100,7 +69,8 @@ const FilterView: React.FC = () => {
   }
 
   const {filterBtnStyle} = getFilterViewStyles();
-  const { preferences, filterSelections } = useCollection();
+  const { filterSelections } = useCollection();
+  const { questionsInfo } = useQuestions();
 
   return (
     <>
@@ -108,7 +78,7 @@ const FilterView: React.FC = () => {
         <FontAwesomeIcon icon="filter" color="white" /> Filter Results
       </button>
       <div className={containerStyle}>
-        {preferences.map((preference, index) => (
+        {questionsInfo.map((preference, index) => (
           <Filter
             key={index}
             type={preference.type}
@@ -126,57 +96,5 @@ const FilterView: React.FC = () => {
   );
 };
 
-const Filter: React.FC<FilterProps> = ({
-  type,
-  options,
-  checked,
-  onToggleChange,
-}) => {
- 
-  const {  btnFilterType } = getFilterStyles();
-  const {btnStyle, handleClick} = useDisplayState();
-
-  return (
-    <div className="content">
-      <div className={btnFilterType} onClick={handleClick}>
-        {type}
-      </div>
-      <div style={btnStyle}>
-        {options.map((option, index) => (
-          <Option
-            key={index}
-            type={type}
-            option={option}
-            onToggleChange={onToggleChange}
-            checked={checked[index]}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const Option: React.FC<optionProps> = ({
-  type,
-  option,
-  checked,
-  onToggleChange,
-}) => {
-  function handleChange() {
-    onToggleChange(type, option);
-  }
-
-  return (
-    <div className="input">
-      <input
-        type="checkbox"
-        id={option}
-        name={option}
-        onChange={handleChange}
-        checked={checked}
-      />
-      <label htmlFor={option}>{option}</label>
-    </div>
-  );
-};
 export default FilterView;
+

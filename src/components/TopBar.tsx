@@ -4,7 +4,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppSelector } from '../store/hooks';
-import { useCollection } from '../utils/useCollection';
+import { useCollection } from '../hooks/useCollection';
 
 library.add(faEnvelope);
 

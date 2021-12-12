@@ -6,13 +6,15 @@ import {
   faSmoking,
   faUtensils,
   faEdit,
-} from '@fortawesome/free-solid-svg-icons';
+} 
+from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { QuestionInfo, selection } from '../store/matchingSlice';
 import { findAnswer } from './BasicQuestion';
 import './AdvancedQuestion.css';
 import EditContent from './EditContent';
 import { useDisplayState } from '../hooks/useDisplayState';
+import { QuestionInfo } from './models/QuestionInfo';
+import { selection } from './models/User';
 
 interface IProps {
   questionInfo: QuestionInfo;

@@ -16,5 +16,8 @@ img {
     margin-bottom: 5px;
     font-size: 20px;
     padding-top:10px;
+    overflow: hidden;
     color: rgb(65, 63, 63);
 }
+
+

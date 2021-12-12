@@ -1,29 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-export interface User {
-  username: string;
-  firstName: string;
-  lastName: string;
-  imageUrl: string;
-  about: string;
-  userSelections: Array<selection>;
-}
-export interface selection {
-  type: string;
-  answer: string;
-}
-
-export interface Profile {
-  user: User;
-  password: string;
-  isLoggedIn: boolean;
-}
-
-export interface QuestionInfo {
-  type: string;
-  question?: string;
-  options: Array<string>;
-  filterOptions?: Array<string>;
-}
+import { Profile } from '../components/models/Profile';
+import { QuestionInfo } from '../components/models/QuestionInfo';
+import { User } from '../components/models/User';
 
 export interface matchingState {
   profile: Profile;
@@ -289,7 +267,6 @@ export const matchingSlice = createSlice({
     }
   },
 });
-
 // Action creators are generated for each case reducer function
 export const { updateUserPreference, updateUserSelections, updateUserProperties } = matchingSlice.actions;
 

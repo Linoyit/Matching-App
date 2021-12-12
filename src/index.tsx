@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store';
 import App from './App';
 import ProfileManager from './components/ProfileManager';
+import InboxManager from './components/InboxManager';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -22,7 +23,8 @@ ReactDOM.render(
         <Route path="/" element={<HomePage/>} >
             <Route index element={<App/>} />
             <Route path=":id" element={<ProfileManager/>} />
-            <Route path="Inbox" element={<Inbox/>} >
+            <Route path="Inbox" element={<InboxManager/>} >
+                <Route index element={<Inbox/>} />
                 <Route path=":chatId" element={<PrivateChat/>} />
             </Route>
         </Route>

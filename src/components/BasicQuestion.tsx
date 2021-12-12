@@ -1,6 +1,7 @@
 import { useDisplayState } from '../hooks/useDisplayState';
-import { QuestionInfo, selection } from '../store/matchingSlice';
 import EditContent from './EditContent';
+import { QuestionInfo } from './models/QuestionInfo';
+import { selection } from './models/User';
 
 interface IProps {
   onToggleChange: (type: string, option: string) => void;
@@ -54,7 +55,7 @@ export const BasicQuestion: React.FC<IProps> = ({
       {' '}
       <p>
         <b>{questionInfo.type}: </b>
-        {edit ? <EditContent handleClick={display.handleClick} /> : null}
+        {edit? <EditContent handleClick={display.handleClick} /> : null}
           {findAnswer(questionInfo, userSelections)?.answer}
       </p>
       <div style={display.btnStyle}>
