@@ -15,7 +15,7 @@ const initialState: matchingState = {
     user: {
       username: '10',
       firstName: 'Moshe',
-
+      lastName: 'Levi',
       imageUrl: 'simpson.jpeg',
       about: 'Im handsome',
       userSelections: [
@@ -35,6 +35,7 @@ const initialState: matchingState = {
     {
       username: '1',
       firstName: 'Rina',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -50,6 +51,7 @@ const initialState: matchingState = {
     {
       username: '2',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -65,6 +67,7 @@ const initialState: matchingState = {
     {
       username: '3',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -80,6 +83,7 @@ const initialState: matchingState = {
     {
       username: '4',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -95,6 +99,7 @@ const initialState: matchingState = {
     {
       username: '5',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -110,6 +115,7 @@ const initialState: matchingState = {
     {
       username: '6',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -125,6 +131,7 @@ const initialState: matchingState = {
     {
       username: '7',
       firstName: 'Tehila',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -140,6 +147,7 @@ const initialState: matchingState = {
     {
       username: '8',
       firstName: 'Maya',
+      lastName: 'Levi',
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -244,10 +252,15 @@ export const matchingSlice = createSlice({
 
     updateUserProperties: (state, action: PayloadAction<Array<string>>) => {
       let profile = state.profile;
-      console.log(action);
+      console.log(action.payload[0]);
       switch (action.payload[0]){
         case 'about': profile.user.about = action.payload[1]; break;
-        case 'firstName': profile.user.firstName = action.payload[1]; break;
+        case 'name':{
+          profile.user.firstName = action.payload[1];
+          const [firstname, lastname] = action.payload[1].split(' ');
+          profile.user.firstName = firstname;
+          profile.user.lastName = lastname;
+        } break;
         case 'imageUrl': profile.user.imageUrl = action.payload[1]; break;
         case 'password': profile.password = action.payload[1]; break;
       }
