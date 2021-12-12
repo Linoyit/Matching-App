@@ -4,14 +4,12 @@ import  './About.css';
 
 
 interface   IProps{
-  isBirth: boolean;
   label: string;
   values: any[];
 }
 
-const Options: React.FC<IProps> = ({label, values, isBirth}) =>{
-  let width = ""
-  isBirth? width = "20%": width = "75%";
+const Options: React.FC<IProps> = ({label, values}) => {
+
   
    const labelStyle = css({
     padding: "12px 12px 12px 0",
@@ -69,9 +67,7 @@ const selectDiv = css({
 </div>
 
 </div>
-  )
-
-  
+  )  
 
 }
 
