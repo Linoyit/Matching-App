@@ -22,12 +22,12 @@
 }
 
 .leftSide{
-    border: 1px solid rgb(214, 33, 33);
+    border: 1px solid rgb(192, 47, 72);
     border-radius: 5px;
 }
 
 .about {
-    border: 1px solid rgb(235, 251, 7);
+    border: 1px solid rgb(192, 47, 72);
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
@@ -35,11 +35,15 @@
 }
 
 .rightSide {
-    border: 1px solid rgb(8, 31, 243);
+    border: 1px solid rgb(192, 47, 72);
     border-radius: 5px;
-
 }
 
-div > span{
+.fa-edit{
     float: right;
 }
+
+.fa-edit:hover{
+    color: white;
+}
+
