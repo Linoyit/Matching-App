@@ -1,8 +1,7 @@
 const PrivateChat: React.FC = () => {
     return (
-       <div>
-           Private Chat
-       </div>
+       
+       <div>Private Chat</div>
     );
 }
 

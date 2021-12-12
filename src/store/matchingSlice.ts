@@ -1,29 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-export interface User {
-  username: string;
-  firstName: string;
-  // age: number;
-  imageUrl: string;
-  about: string;
-  userSelections: Array<selection>;
-}
-export interface selection {
-  type: string;
-  answer: string;
-}
-
-export interface Profile {
-  user: User;
-  password: string;
-  isLoggedIn: boolean;
-}
-
-export interface QuestionInfo {
-  type: string;
-  question?: string;
-  options: Array<string>;
-  filterOptions?: Array<string>;
-}
+import { Profile } from '../components/models/Profile';
+import { QuestionInfo } from '../components/models/QuestionInfo';
+import { User } from '../components/models/User';
 
 export interface matchingState {
   profile: Profile;
@@ -37,7 +15,7 @@ const initialState: matchingState = {
     user: {
       username: '10',
       firstName: 'Moshe',
-      // age: 28,
+
       imageUrl: 'simpson.jpeg',
       about: 'Im handsome',
       userSelections: [
@@ -57,7 +35,6 @@ const initialState: matchingState = {
     {
       username: '1',
       firstName: 'Rina',
-      // age: 28,
       about: 'Im handsome',
       imageUrl: 'simpson.jpeg',
       userSelections: [
@@ -204,7 +181,6 @@ const initialState: matchingState = {
     {
       type: 'Religion',
       question: 'What is your Religion?',
-      //TODO: check namings below
       options: ['Secular', 'atheist', 'Traditional', 'Orthodox'],
     },
     {
@@ -278,7 +254,6 @@ export const matchingSlice = createSlice({
     }
   },
 });
-
 // Action creators are generated for each case reducer function
 export const { updateUserPreference, updateUserSelections, updateUserProperties } = matchingSlice.actions;
 

@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import { useCollection } from "../utils/useCollection";
+import { useCollection } from "../hooks/useCollection";
 import HomePage from "./HomePage";
 import MatchProfile from "./MatchProfile";
 import MyProfile from "./MyProfile";

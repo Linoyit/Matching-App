@@ -3,11 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import MatchBox from './MatchBox';
 import SendMessageBox from './SendMessageBox';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { User } from '../store/matchingSlice';
 import PropertiesBox from './PropertiesBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { User } from './models/User';
 
 library.add(faChevronLeft)
 

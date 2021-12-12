@@ -1,7 +1,7 @@
 import { useAppSelector } from '../store/hooks';
-import { selection, User } from '../store/matchingSlice';
 import { AdvanceQuestion } from './AdvanceQuestion';
 import { BasicQuestion } from './BasicQuestion';
+import { selection, User } from './models/User';
 import './PropertiesBox.css';
 
 interface IProps {

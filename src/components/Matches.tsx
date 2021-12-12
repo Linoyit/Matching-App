@@ -1,8 +1,7 @@
-import { useAppSelector } from "../store/hooks";
-import { User } from "../store/matchingSlice";
-import { useCollection } from "../utils/useCollection";
+import { useCollection } from "../hooks/useCollection";
 import MatchBox from "./MatchBox";
 import './Matches.css';
+import { User } from "./models/User";
 
 const Matches: React.FC = () => {
 
