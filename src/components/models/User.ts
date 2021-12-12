@@ -1,6 +1,7 @@
 export interface User {
     username: string;
     firstName: string;
+    lastName: string;
     imageUrl: string;
     about: string;
     userSelections: Array<selection>;
